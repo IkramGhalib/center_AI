@@ -1,6 +1,7 @@
 <?php
-  include_once('check.php');
-  authenticate("view");
+//   require_once 'check.php';
+
+// authenticate('can_view');
 ?>
 <!DOCTYPE html>
 <html>

@@ -1,6 +1,6 @@
 <?php
-  include_once('check.php');
-  authenticate("view");
+  // include_once('check.php');
+  // authenticate("view");
 ?><!doctype html>
 <html><!-- InstanceBegin template="/Templates/Master.dwt" codeOutsideHTMLIsLocked="false" -->
   <meta http-equiv="refresh" content="300">

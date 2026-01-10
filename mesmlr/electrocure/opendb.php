@@ -6,7 +6,7 @@
 	$servername = "localhost";
 	$username = "root";
 	$password = "";
-	$dbname = "electrocure_mes";
+	$dbname = "electrocure";
 
 	try {
 	    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);

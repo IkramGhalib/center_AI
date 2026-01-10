@@ -1,6 +1,6 @@
 <?php
-  include_once('check.php');
-  authenticate("edit");
+//   include_once('check.php');
+//   authenticate("edit");
 ?><!DOCTYPE html>
 <html>
 <head>

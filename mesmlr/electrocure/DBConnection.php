@@ -4,16 +4,12 @@
 	// Class For Database Connection
 
 	class DBCon{
-		// Database Parameters. We can change this parameters for other MES.
-		// public $host 		= "10.13.144.6";
-  //       public $user       = "user_srspklm";
-		// public $password 	= "Adm1n@srspklm";
-		// public $database 	= "electrocure_srspklm";
+		
 
 		public $host 		= "localhost";
         public $user       = "root";
 		public $password 	= "";
-		public $database 	= "electrocure_srsp";
+		public $database 	= "electrocure";
 		
 		public $db;
 		/* This function is used for creating Connection with Database. if connection is made successfully then it will return TRUE otherwise it will return FALSE*/

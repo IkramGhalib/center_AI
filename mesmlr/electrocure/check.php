@@ -1,15 +1,16 @@
-<?php 
-	session_start();
-	
-	function authenticate($page){
-		if (!isset($_SESSION['employee'])) {
-			echo "<script>window.location.href = 'login.php';</script>";
-		}
+<?php
+function authenticate($permission = 'can_view')
+{
+    if (!isset($_SESSION['employee'])) {
+        header("Location: login.php");
+        exit;
+    }
 
-		if ($page != "ignore") {
-			if($_SESSION['employee'][$page] == 0){
-			echo "<script>window.location.href = 'unauthorized.php';</script>";
-			}
-		}
-	}
-?>
+    if (
+        !isset($_SESSION['employee'][$permission]) ||
+        $_SESSION['employee'][$permission] != 1
+    ) {
+        header("Location: unauthorized.php");
+        exit;
+    }
+}

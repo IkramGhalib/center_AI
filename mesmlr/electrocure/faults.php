@@ -1,7 +1,8 @@
-<?php session_start();
-if( !isset($_SESSION['userid']) or $_SESSION['role'] != "admin" ){
-  echo "<script language='javascript'>window.location.href='login.php';</script>";
-}
+<?php 
+// session_start();
+// if( !isset($_SESSION['userid']) or $_SESSION['role'] != "admin" ){
+//   echo "<script language='javascript'>window.location.href='login.php';</script>";
+// }
 ?>
 <!DOCTYPE html>
 <html>

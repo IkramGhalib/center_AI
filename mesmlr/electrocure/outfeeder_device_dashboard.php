@@ -1,7 +1,5 @@
-<?php session_start();
-if( !isset($_SESSION['userid'])){
-  echo "<script language='javascript'>window.location.href='login.php';</script>";
-}
+<?php
+
 ?>
 <!doctype html>
 <html>
