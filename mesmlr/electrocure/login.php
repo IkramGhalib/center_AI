@@ -52,17 +52,29 @@ $result = NULL;
     $stmt->bindParam(':userid', $txtuserid);
     $stmt->bindParam(':pass', $txtpasswd);
 
-      session_start();
+    try
+      {
+        $result = $stmt->execute();
+        $count = $stmt->rowCount();
 
-      $stmt->execute();
-      $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        if($count > 0){
+            while($row = $stmt->fetch())
+            {
+              session_start();
+              $_SESSION['userid'] = $row[0];
+              $_SESSION['employee'] = $row;
+              echo "<script language = \"javascript\" type = \"text/javascript\"> window.location.href=\"feeder_dashboard.php?filter=0G0&status=all\"; </script>";
+            }
+         }
+         else{
+           $msg = "Wrong Username or Password!";
+           echo "<script type='text/javascript'>alert('$msg');</script>";
+         }
 
-      if ($user) {
-          $_SESSION['userid']   = $user['userid'];
-          $_SESSION['employee'] = $user;
-
-          header("Location: feeder_dashboard.php?filter=0G0&status=all");
-          exit;
+      }
+      catch(PDOException $e)
+      {
+        $msg = $e->getMessage();
       }
 
 }

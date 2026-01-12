@@ -1,8 +1,10 @@
-<?php session_start();
-if( !isset($_SESSION['userid']) or $_SESSION['role'] != "admin" ){
-  echo "<script language='javascript'>window.location.href='login.php';</script>";
-}
-?>
+<?php 
+include_once('check.php');
+  authenticate("can_view");
+  // echo '<pre>';
+  // print_r($_SESSION['employee']);
+  // exit;
+  ?>
 <?php
 
 	        require_once("opendb.php"); 

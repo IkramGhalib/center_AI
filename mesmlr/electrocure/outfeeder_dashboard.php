@@ -1,6 +1,9 @@
 <?php
-  // include_once('check.php');
-  // authenticate("view");
+  include_once('check.php');
+  authenticate("can_view");
+  // echo '<pre>';
+  // print_r($_SESSION['employee']);
+  // exit;
 ?>
 <!DOCTYPE html>
 <html>
@@ -51,11 +54,11 @@
                                       $totalOffPk= 0;
                                       $fdid = $_GET['id'];
                                         if ($fdid =="0G0") {
-                                              $q = "SELECT * from outfeeder";
+                                              $q = "SELECT * from outfeeder where fdid != 'I1F1'";
                                             $resultactive = $conn -> query($q) or die("Query error");
                                              $q = "select * from feeder where fdid = '".$fdid."'";
                                         } else{
-                                            $q = "SELECT * from outfeeder where substring_index(fdid,'F',1)= '".$fdid."'";
+                                            $q = "SELECT * from outfeeder where substring_index(fdid,'F',1)= '".$fdid."' AND  fdid != 'I1F1'";
                                             $resultactive = $conn -> query($q) or die("Query error");
                                             $q = "select * from feeder where fdid = '".$fdid."'";
                                         }
@@ -108,13 +111,13 @@
         
                          
                                                 $timediff = abs(ceil(abs($currenttime-$lasttime)/60));
-                                                $avgVoltage  = round(($row['v1']+$row['v2']+$row['v3'])/3*0.1732,2);
-                                                $sumCurrent = round(($row['c1']+ $row['c2'] + $row['c3']),2);
+  $avgVoltage  = round(($row['v1']+$row['v2']+$row['v3'])/3*0.1732,2);
+  $sumCurrent = round(($row['c1']+ $row['c2'] + $row['c3']),2);
                                                 $maxCurrent = max($row['c1'],$row['c2'],$row['c3']);
                                                 //$NC = round($row['NC']* $row['mfactorcurrent'],2);
-                                                $kva1 = round($row['c1'] * $row['v1']*0.1732,2);
-                                                $kva2 = round($row['c2'] * $row['v2']*0.1732 ,2);
-                                                $kva3 = round($row['c3'] * $row['v2']*0.1732 ,2);
+      $kva1 = round($row['c1'] * $row['v1']*0.1732,2);
+      $kva2 = round($row['c2'] * $row['v2']*0.1732 ,2);
+      $kva3 = round($row['c3'] * $row['v2']*0.1732 ,2);
                                                 $totalKVA  = round(($kva1 + $kva2 + $kva3),2);
                                                 $avgPf = round(($row['pf1']+$row['pf2']+$row['pf3'])/3,2);
                                                // $id = explode('D',$row['fdid']);

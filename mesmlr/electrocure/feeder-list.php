@@ -1,8 +1,10 @@
 <?php
-//   require_once 'check.php';
-
-// authenticate('can_view');
-?>
+  include_once('check.php');
+  authenticate("can_view");
+  // echo '<pre>';
+  // print_r($_SESSION['employee']);
+  // exit;
+  ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -116,7 +118,7 @@
 
 
        <?php
-        if($_SESSION['employee']['edit'] == 1){
+        if($_SESSION['employee']['can_edit'] == 1){
         ?>
           <button id="add-new-button" class="btn btn-primary" onClick="window.location.href='add-new-infeeder.php'"><b>+ Add New Feeder</b></button>
       <br>
@@ -135,7 +137,7 @@
     <th scope="col">Description</th>
     <th scope="col">Connection Date</th>
     <?php
-        if($_SESSION['employee']['edit'] == 1){
+        if($_SESSION['employee']['can_edit'] == 1){
         ?>
           <th scope="col">Actions</th>
         <?php                        
@@ -147,7 +149,7 @@
     <tbody>
 
     <?php
-        $subdivid = "mes05c1";
+        $subdivid = "";
         $dbtype = "electrocure";
     require_once("opendb.php");
     $query= "SELECT * from feeder";
@@ -162,7 +164,7 @@
     <td><?php echo $row ['description'];  ?></td>
     <td><?php echo $row ['connectiondate'];  ?></td>
     <?php
-        if($_SESSION['employee']['edit'] == 1){
+        if($_SESSION['employee']['can_edit'] == 1){
         ?>
           <td>
 
@@ -186,7 +188,7 @@
     <th scope="col">Description</th>
     <th scope="col">Connection Date</th>
     <?php
-        if($_SESSION['employee']['edit'] == 1){
+        if($_SESSION['employee']['can_edit'] == 1){
         ?>
           <th scope="col">Actions</th>
         <?php                        

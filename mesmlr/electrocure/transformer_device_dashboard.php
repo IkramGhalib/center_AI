@@ -1,7 +1,10 @@
 <?php
-  // include_once('check.php');
-  // authenticate("view");
-?>
+  include_once('check.php');
+  authenticate("can_view");
+  // echo '<pre>';
+  // print_r($_SESSION['employee']);
+  // exit;
+  ?>
 <!doctype html>
 <html><!-- InstanceBegin template="/Templates/Master.dwt" codeOutsideHTMLIsLocked="false" -->
   

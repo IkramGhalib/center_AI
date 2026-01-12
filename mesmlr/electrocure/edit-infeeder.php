@@ -1,7 +1,10 @@
 <?php
   include_once('check.php');
-  authenticate("edit");
-?>
+  authenticate("can_view");
+  // echo '<pre>';
+  // print_r($_SESSION['employee']);
+  // exit;
+  ?>
 <!DOCTYPE html>
 <html>
 <head>

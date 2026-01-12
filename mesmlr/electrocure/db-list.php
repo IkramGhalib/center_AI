@@ -1,7 +1,10 @@
 <?php
-  // include_once('check.php');
-  // authenticate("view");
-?>
+  include_once('check.php');
+  authenticate("can_view");
+  // echo '<pre>';
+  // print_r($_SESSION['employee']);
+  // exit;
+  ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -122,7 +125,7 @@
     <!-- Main content -->
     <section class="content">
       <?php
-        if($_SESSION['employee']['edit'] == 1){
+        if($_SESSION['employee']['can_view'] == 1){
         ?>
           <button id="add-new-button" class="btn btn-primary" onClick="window.location.href='add-new-db.php'"><b>+ Add New DB</b></button>
           <br>
@@ -140,7 +143,7 @@
     <th scope="col">Description</th>
     <th scope="col">Connection Date</th>
     <?php
-      if($_SESSION['employee']['edit'] == 1){
+      if($_SESSION['employee']['can_view'] == 1){
       ?>
         <th scope="col">Actions</th>
       <?php                        
@@ -168,7 +171,7 @@
     <td><?php echo $row ['description'];  ?></td>
     <td><?php echo $row ['connectiondate'];  ?></td>
     <?php
-      if($_SESSION['employee']['edit'] == 1){
+      if($_SESSION['employee']['can_view'] == 1){
       ?>
       <td>
         <button class="btn btn-primary" onClick="window.location.href='edit-db.php?id=<?php echo $row ['dbid'];  ?>'">Edit</button>
@@ -190,7 +193,7 @@
     <th scope="col">Description</th>
     <th scope="col">Connection Date</th>
     <?php
-      if($_SESSION['employee']['edit'] == 1){
+      if($_SESSION['employee']['can_view'] == 1){
       ?>
         <th scope="col">Actions</th>
       <?php                        
